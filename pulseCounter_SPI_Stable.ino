@@ -21,10 +21,10 @@
 
 
 // Function Headers
-void clearDisplayI2C();
-void setBrightnessI2C(byte value);
-void setDecimalsI2C(byte decimals);
-void s7sSendStringI2C(String toSend);
+void clearDisplaySPI();
+void setBrightnessSPI(byte value);
+void setDecimalsSPI(byte decimals);
+void s7sSendStringSPI(String toSend);
 void s7sDisplay(String toSend);
 float mapFloat(float x, float inMin, float inMax, float outMin, float outMax);
 String pad(int padThis);
@@ -109,18 +109,20 @@ void loop() {
       frequency = 9999.0000;
       
     }
+
+    s7sDisplay(int(round(frequency)));
     
 //    flowRate = mapFloat(frequency, 20.0, 100.0, 1.9, 9.5);
-
-    if (inRange) {
-      flowRate = int(round(frequency));
-      s7sSendStringSPI(pad(flowRate));
-      
-    } else {
-      clearDisplaySPI();  // Clears display, resets cursor
-      s7sSendStringSPI("9999");
-      
-    }
+//
+//    if (inRange) {
+//      flowRate = int(round(frequency));
+//      s7sSendStringSPI(pad(flowRate));
+//      
+//    } else {
+//      clearDisplaySPI();  // Clears display, resets cursor
+//      s7sSendStringSPI("9999");
+//      
+//    }
 
   }
 
