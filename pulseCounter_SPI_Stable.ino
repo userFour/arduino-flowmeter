@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// PULSE COUNTER NANO V3
+// PULSE COUNTER NANO
 //
 //
 // Author(s): MArkos Frazzer    Date: 2019-10-23
@@ -110,7 +110,7 @@ void loop() {
       
     }
 
-    s7sDisplay(int(round(frequency)));
+    s7sDisplay(String(round(frequency * 100.0)));
     
 //    flowRate = mapFloat(frequency, 20.0, 100.0, 1.9, 9.5);
 //
