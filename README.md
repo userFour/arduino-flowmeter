@@ -32,4 +32,4 @@ Frequncy is mapped to flow, and flow data is transferred via SPI communication t
 There is also an RGB LED status light. This is controlled by PWM on pins 3, 5, and 7.
 
 #### Updating firmware
-Firmware can be re-flashed using the Arduino IDE. Since the CH340 chips used by these Arduino clones are not nativly supported by Windows, install the latest drivers from [WCH](http://www.wch.cn/download/CH341SER_ZIP.html), or use the archived .EXE in /drivers.
+Firmware can be re-flashed using the Arduino IDE. Since the CH340 chips used by these Arduino clones are not nativly supported by Windows, install the latest drivers from [WCH](http://www.wch.cn/download/CH341SER_ZIP.html), or use the archived zip in /Drivers.
