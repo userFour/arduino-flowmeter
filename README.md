@@ -3,7 +3,7 @@ A portable, Arduino based flowmeter monitor for use with the legacy Proteus flow
 
 ## Supported Flowmeter Models
 #### Compatible Hardware
-The latest firmware supports the 100, 300B, and 300 series flowmeters, pictured (in order) below. According to Proteus, the flowmeters have a recommended operating range of 20-100Hz, although accurate results may be obtained from 14-130Hz.
+The latest firmware supports the __100, 300B, and 300 series flowmeters__, pictured (in order) below. According to Proteus, __the flowmeters have a recommended operating range of 20-100Hz__, although accurate results may be obtained from 14-130Hz.
 
 ![Image](https://github.com/userFour/arduino-flowmeter/blob/master/Photos/IMG_20191213_130817.jpg "Flowmeters")
 
@@ -61,8 +61,10 @@ The latest firmware supports the 100, 300B, and 300 series flowmeters, pictured 
   </tr>
 </table>
 
+__Note that polarity indicates which terminal should be attached to the SIG+ pin on the pulseCounter PCB. In+ indicates the terminal closest to the inlet port should be SIG+, while Out+ indicates the terminal closest to the outlet port should be SIG+.__
+
 #### Configuring the pulseCounter
-On boot, the pulseCounter will read all five dipswitches, and use the seven segment display to show which state it is in. The first four switches can be used for flowmeter model selection, while the fifth switch is reserved for raw frequency output. The switches are read in binary, so the decimal flowmeter model numbers should be converted to binary and then flipped appropriately. A table is provided for convenience.
+On boot, the pulseCounter will read all five dipswitches, and use the seven segment display to show which state it is in. The first four switches can be used for flowmeter model selection, while the fifth switch is reserved for raw frequency output. The switches are read in binary, so the decimal flowmeter model numbers should be converted to binary and then flipped appropriately. A table is provided for convenience:
 
 <table class="tg">
   <tr>
@@ -94,7 +96,7 @@ On boot, the pulseCounter will read all five dipswitches, and use the seven segm
   </tr>
 </table>
 
-To view raw frequncy output, the fifth switch should be flipped on. In this case, the flowmeter will display "ECHO" on boot and will display frequency values without calculating actual flow. It is recommended to check the frequency values, and ensure the flowmeter is operating within the 20-100Hz range. If the range is exceeded, consider switching to another flowmeter model.
+__To view raw frequncy output__, the fifth switch should be flipped on. In this case, the flowmeter will display "ECHO" on boot and will display frequency values without calculating actual flow. It is recommended to check the frequency values, and ensure the flowmeter is operating within the 20-100Hz range. If the range is exceeded, consider switching to another flowmeter model.
 
 ## Hardware Overview
 #### UI Features
