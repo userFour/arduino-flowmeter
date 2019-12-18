@@ -1,11 +1,14 @@
 # Arduino Flowmeter
 A portable, Arduino based flowmeter monitor for use with the legacy Proteus flowmeters at TRIUMF labs.
 
-### Hardware Overview
+## Supported Flowmeter Models
+The latest firmware supports the 100, 300, and 300B series flowmeters. Configuration details can be found in the user manual.
+
+## Hardware Overview
 #### UI Features
 * Sparkfun serial seven segment display
 * 5 dipswitches for flowmeter model configuration
-* Programmable configuration for 4 flowmeter models, and raw frequency output
+* Programmable configuration for 5 flowmeter models, and raw frequency output
 * RGB LED status light
 * On/off switch
 * Reset button
@@ -28,5 +31,5 @@ Frequncy is mapped to flow, and flow data is transferred via SPI communication t
 
 There is also an RGB LED status light. This is controlled by PWM on pins 3, 5, and 7.
 
-### Supported Flowmeter Models
-The latest firmware supports the 100, 300, and 300B series flowmeters.
+#### Updating firmware
+Firmware can be re-flashed using the Arduino IDE. Since the CH340 chips used by these Arduino clones are not nativly supported by Windows, install the latest drivers from [WCH](http://www.wch.cn/download/CH341SER_ZIP.html), or use the archived .EXE in /drivers.
