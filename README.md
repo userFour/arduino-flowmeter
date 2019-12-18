@@ -2,7 +2,99 @@
 A portable, Arduino based flowmeter monitor for use with the legacy Proteus flowmeters at TRIUMF labs.
 
 ## Supported Flowmeter Models
-The latest firmware supports the 100, 300, and 300B series flowmeters. Configuration details can be found in the user manual.
+#### Compatible Hardware
+The latest firmware supports the 100, 300B, and 300 series flowmeters, pictured (in order) below. According to Proteus, the flowmeters have a recommended operating range of 20-100Hz, although accurate results may be obtained from 14-130Hz.
+
+![Image](https://github.com/userFour/arduino-flowmeter/blob/master/Photos/IMG_20191213_130817.jpg "Flowmeters")
+
+<table class="tg">
+  <tr>
+    <th class="tg-c3ow" colspan="6">Configuration Table<br>NOTE: Potted coils may be nonpolar</th>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Model</td>
+    <td class="tg-c3ow">Inlet Port</td>
+    <td class="tg-c3ow">Outlet Port</td>
+    <td class="tg-c3ow">Model Designation</td>
+    <td class="tg-c3ow">Model Number</td>
+    <td class="tg-baqh">Polarity</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">100</td>
+    <td class="tg-c3ow">A</td>
+    <td class="tg-c3ow">B</td>
+    <td class="tg-c3ow">100AB</td>
+    <td class="tg-c3ow">0</td>
+    <td class="tg-baqh">In+</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">100</td>
+    <td class="tg-c3ow">B</td>
+    <td class="tg-c3ow">C</td>
+    <td class="tg-c3ow">100BC</td>
+    <td class="tg-c3ow">1</td>
+    <td class="tg-baqh">In+</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">100</td>
+    <td class="tg-baqh">D</td>
+    <td class="tg-baqh">C</td>
+    <td class="tg-baqh">100DC</td>
+    <td class="tg-baqh">2</td>
+    <td class="tg-baqh">Out+</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">300</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">300</td>
+    <td class="tg-baqh">3</td>
+    <td class="tg-baqh">Out+</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">300 Brass</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">300B</td>
+    <td class="tg-baqh">4</td>
+    <td class="tg-baqh">Out+</td>
+  </tr>
+</table>
+
+#### Configuring the pulseCounter
+On boot, the pulseCounter will read all five dipswitches, and use the seven segment display to show which state it is in. The first four switches can be used for flowmeter model selection, while the fifth switch is reserved for raw frequency output. The switches are read in binary, so the decimal flowmeter model numbers should be converted to binary and then flipped appropriately. A table is provided for convenience.
+
+<table class="tg">
+  <tr>
+    <th class="tg-c3ow" colspan="2">Decimal-Binary Switch Mapping</th>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Model Designation</td>
+    <td class="tg-c3ow">Switch Configuration</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">100AB</td>
+    <td class="tg-c3ow">00000</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">100BC</td>
+    <td class="tg-c3ow">10000</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">100DC</td>
+    <td class="tg-baqh">01000</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">300</td>
+    <td class="tg-baqh">11000</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">300B</td>
+    <td class="tg-baqh">00100</td>
+  </tr>
+</table>
+
+To view raw frequncy output, the fifth switch should be flipped on. In this case, the flowmeter will display "ECHO" on boot and will display frequency values without calculating actual flow. It is recommended to check the frequency values, and ensure the flowmeter is operating within the 20-100Hz range. If the range is exceeded, consider switching to another flowmeter model.
 
 ## Hardware Overview
 #### UI Features
